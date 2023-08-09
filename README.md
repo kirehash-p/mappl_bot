@@ -107,7 +107,7 @@ TOKENはDiscordBotのトークン、CHANNEL_IDはBotが通知するようのチ�
 下の方にある自動化の項目の起動スクリプトの欄に、以下の内容を入力する。
 
 ```
-nohup python3 [pwdの出力結果]/main.py
+cd [pwdの出力結果] && python3 main.py
 ```
 
 保存を押したあとに出るページで[停止]を押したあと[開始/再開]を押して完成。お疲れ様！
