@@ -1,5 +1,5 @@
 import discord_bot, data_operation
-import os, sys
+import sys
 from logging import getLogger, StreamHandler, DEBUG, Formatter, FileHandler
 
 # ログ周りの設定
@@ -18,10 +18,10 @@ logger.addHandler(fh)
 
 # 定数の宣言
 try:
-    TOKEN = os.environ('BOT_TOKEN')
-    CHANNEL_ID = os.environ('CHANNEL_ID')
+    TOKEN = ""
+    CHANNEL_ID = ""
     jsonf = "credential.json"
-    sheet_key = os.environ('SHEET_KEY')
+    sheet_key = ""
     logger.info("Variable set.")
 except Exception as e:
     logger.error("Variable not found.")
