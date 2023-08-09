@@ -16,8 +16,8 @@ def if_date_before_today(date_string):
         date = datetime.datetime.strptime(date_string, '%Y-%m-%d').date()
     except:
         return True # YYYY-MM-DD形式でないものもTrueとして処理する。
-    return date < datetime.datetime.today().date()
+    return date < (datetime.datetime.utcnow()+datetime.timedelta(hours=9)).date()
 
 # 今日から換算してn日後の日付をYYYY-MM-DD形式で返す。
 def future_date(n):
-    return (datetime.datetime.today() + datetime.timedelta(days=n)).strftime("%Y-%m-%d")
+    return ((datetime.datetime.utcnow()+datetime.timedelta(hours=9)).date() + datetime.timedelta(days=n)).strftime("%Y-%m-%d")

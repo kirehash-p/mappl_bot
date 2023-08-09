@@ -8,8 +8,8 @@ logger = getLogger("Log").getChild("discord_bot")
 def run_bot(TOKEN, CHANNEL_ID, jsonf, sheet_key):
     logger.debug("Executing run_bot...")
     # Googleスプレッドシートからリマインドする時間、何日後まで入力欄を設けるかの値を取得
-    prefix = data_operation.get_data[1]
-    notify_time, margin = prefix[4][1], prefix[5][1]
+    prefix = data_operation.get_data(jsonf, sheet_key)[1]
+    notify_time, margin = prefix[4][1], int(prefix[5][1])
     # botを起動する前にGoogleスプレッドシートの表の整理
     data_operation.auto_arrange(jsonf, sheet_key, margin)
 
