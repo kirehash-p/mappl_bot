@@ -78,7 +78,7 @@ Compute Engine APIのページに戻ってきたら再度[有効にする]ボタ
 
 `sudo python3 get-pip.py`
 
-`pip install discord.py[voice] gspread oauth2client`
+`sudo pip install discord.py[voice] gspread oauth2client`
 
 ターミナルの画面は開いたまま、当リポジトリからmain.py data_operation.py discord_bot.py jst_time.pyを自身のPCに保存する。
 
