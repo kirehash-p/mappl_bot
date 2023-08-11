@@ -10,6 +10,7 @@ def run_bot(TOKEN, CHANNEL_ID, jsonf, sheet_key):
     # Googleスプレッドシートからリマインドする時間、何日後まで入力欄を設けるかの値を取得
     prefix = data_operation.get_data(jsonf, sheet_key)[1]
     notify_time, margin = prefix[4][1], int(prefix[5][1])
+
     # botを起動する前にGoogleスプレッドシートの表の整理
     data_operation.auto_arrange(jsonf, sheet_key, margin)
 
@@ -18,7 +19,7 @@ def run_bot(TOKEN, CHANNEL_ID, jsonf, sheet_key):
     @tasks.loop(seconds=60)
     async def loop():
         if jst_time.now_minute() == notify_time:
-            announce_channel = client.get_channel(CHANNEL_ID)
+            announce_channel = (client.get_channel(CHANNEL_ID) or await client.fetch_channel(CHANNEL_ID))
             await send_schedule(announce_channel, jsonf, sheet_key, jst_time.now_day())
             data_operation.auto_arrange(jsonf, sheet_key, margin)
     
