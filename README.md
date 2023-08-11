@@ -1,7 +1,7 @@
 # mappl_bot
 MaPPLのDiscord鯖用予定リマインドbot
 
-## 使い方
+## 導入方法
 [Google Cloud Platform](https://console.cloud.google.com/)にアクセスし、新しいプロジェクトを作成する。
 
 プロジェクト名は適当に決める。
